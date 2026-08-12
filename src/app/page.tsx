@@ -133,14 +133,14 @@ export default function Home() {
     <>
       <LandingPage isRevealed={isRevealed} onEnter={() => setIsRevealed(true)} />
       
-      <main className="h-screen w-screen overflow-hidden flex flex-col xl:flex-row items-center justify-center p-4 bg-black text-white selection:bg-[#9AC95F] selection:text-black">
+      <main className="min-h-screen w-full overflow-x-hidden flex flex-col xl:flex-row items-center justify-center p-4 py-12 xl:py-4 bg-black text-white selection:bg-[#9AC95F] selection:text-black">
         {/* Background decorations */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
          <div className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-[#FF0E7F]/10 blur-[120px] rounded-full" />
          <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-[#00FFFF]/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="z-10 w-full max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
+      <div className="z-10 w-full max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-center mt-8 xl:mt-0">
         
         {/* LEFT COL: Form */}
         <div className="flex flex-col gap-8 order-2 xl:order-1 max-w-lg mx-auto xl:mx-0 w-full z-10 xl:pl-16">
@@ -234,7 +234,7 @@ export default function Home() {
         {/* RIGHT COL: Preview */}
         <div className="order-1 xl:order-2 flex flex-col items-center justify-center w-full z-10 perspective-[2000px]">
           <motion.div 
-            className="scale-[0.8] md:scale-90 xl:scale-95 2xl:scale-100 origin-center transform transition-transform relative cursor-zoom-in group/card"
+            className="scale-[0.75] sm:scale-[0.85] md:scale-90 xl:scale-95 2xl:scale-100 origin-center transform transition-transform relative cursor-zoom-in group/card"
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
