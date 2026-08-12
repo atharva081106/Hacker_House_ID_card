@@ -5,12 +5,15 @@ import { IDCard } from "@/components/IDCard";
 import { toPng } from "html-to-image";
 import { Upload, Download, Share2, Loader2 } from "lucide-react";
 import { LandingPage } from "@/components/LandingPage";
+import { ImageCropper } from "@/components/ImageCropper";
 import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [photo, setPhoto] = useState<string | null>(null);
+  const [rawPhotoUrl, setRawPhotoUrl] = useState<string | null>(null);
+  const [showCropper, setShowCropper] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -65,7 +68,8 @@ export default function Home() {
       }
 
       const objectUrl = URL.createObjectURL(processFile);
-      setPhoto(objectUrl);
+      setRawPhotoUrl(objectUrl);
+      setShowCropper(true);
     } catch (error) {
       console.error("Error processing image", error);
       alert("Failed to process image. Try a standard JPG or PNG.");
@@ -114,6 +118,16 @@ export default function Home() {
 
   return (
     <>
+      {showCropper && rawPhotoUrl && (
+        <ImageCropper
+          imageSrc={rawPhotoUrl}
+          onSave={(cropped) => {
+            setPhoto(cropped);
+            setShowCropper(false);
+          }}
+          onCancel={() => setShowCropper(false)}
+        />
+      )}
       <LandingPage isRevealed={isRevealed} onEnter={() => setIsRevealed(true)} />
       
       <main className="min-h-screen w-full overflow-x-hidden flex flex-col xl:flex-row items-center justify-center p-4 py-12 xl:py-4 bg-black text-white selection:bg-[#9AC95F] selection:text-black">
@@ -171,8 +185,19 @@ export default function Home() {
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-[#00FFFF] shadow-[0_0_10px_#00FFFF] opacity-0 group-hover/drop:opacity-100 group-hover/drop:animate-scan z-0" />
                 
                 <Upload className="w-8 h-8 text-gray-700 group-hover/drop:text-[#00FFFF] mb-3 transition-colors relative z-10" />
-                <span className="text-gray-600 text-xs tracking-widest uppercase group-hover/drop:text-[#00FFFF] transition-colors relative z-10 font-bold">
-                  {photo ? "> IMAGE_LOADED. CLICK_TO_REPLACE" : "> AWAITING_UPLOAD (JPG/PNG/HEIC)"}
+                <span className="text-gray-600 text-xs tracking-widest uppercase group-hover/drop:text-[#00FFFF] transition-colors relative z-10 font-bold text-center">
+                  {photo ? (
+                    <>
+                      > IMAGE_LOADED <br/>
+                      <span className="text-[#FF0E7F] mt-2 block">CLICK TO REPLACE</span>
+                      <button 
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowCropper(true); }}
+                        className="mt-4 px-4 py-1 border border-[#00FFFF] text-[#00FFFF] hover:bg-[#00FFFF] hover:text-black transition-colors"
+                      >
+                        EDIT CROP
+                      </button>
+                    </>
+                  ) : "> AWAITING_UPLOAD (JPG/PNG/HEIC)"}
                 </span>
                 <input 
                   type="file" 
