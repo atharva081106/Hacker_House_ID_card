@@ -45,7 +45,7 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({ imageSrc, onSave, on
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <div className="w-full max-w-2xl bg-black border border-[#FF0E7F] p-6 shadow-[0_0_30px_rgba(255,14,127,0.2)] flex flex-col gap-6 relative">
+        <div className="w-full max-w-md bg-black border border-[#FF0E7F] p-6 shadow-[0_0_30px_rgba(255,14,127,0.2)] flex flex-col gap-6 relative">
           
           <div className="flex justify-between items-center text-[#00FFFF] font-mono border-b border-gray-800 pb-4">
             <h3 className="text-xl font-bold tracking-widest uppercase">
@@ -56,7 +56,7 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({ imageSrc, onSave, on
             </button>
           </div>
 
-          <div className="relative w-full h-[40vh] md:h-[50vh] bg-gray-900 border border-[#00FFFF]/30">
+          <div className="relative w-full h-[30vh] md:h-[40vh] bg-gray-900 border border-[#00FFFF]/30">
             <Cropper
               image={imageSrc}
               crop={crop}

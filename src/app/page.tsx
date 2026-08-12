@@ -188,7 +188,7 @@ export default function Home() {
                 <span className="text-gray-600 text-xs tracking-widest uppercase group-hover/drop:text-[#00FFFF] transition-colors relative z-10 font-bold text-center">
                   {photo ? (
                     <>
-                      > IMAGE_LOADED <br/>
+                      &gt; IMAGE_LOADED <br/>
                       <span className="text-[#FF0E7F] mt-2 block">CLICK TO REPLACE</span>
                       <button 
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowCropper(true); }}
