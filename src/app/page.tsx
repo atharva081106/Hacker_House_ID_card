@@ -277,15 +277,16 @@ export default function Home() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <motion.div
-              initial={{ scale: 0.5, y: 100, rotateX: 20 }}
-              animate={{ scale: typeof window !== 'undefined' && window.innerHeight > 800 ? 1.4 : 1.1, y: 0, rotateX: 0 }}
-              exit={{ scale: 0.5, y: 100, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="origin-center relative group/modal cursor-default"
-              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="scale-[0.75] sm:scale-[0.85] md:scale-100 lg:scale-[1.1] xl:scale-[1.3] origin-center flex items-center justify-center w-full h-full">
+              <motion.div
+                initial={{ scale: 0.5, y: 100, rotateX: 20 }}
+                animate={{ scale: 1, y: 0, rotateX: 0 }}
+                exit={{ scale: 0.5, y: 100, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                className="origin-center relative group/modal cursor-default"
+                style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+                onClick={(e) => e.stopPropagation()}
+              >
               <IDCard 
                 name={name} 
                 role={role} 
@@ -301,6 +302,7 @@ export default function Home() {
                 }}
               />
             </motion.div>
+            </div>
             
             <motion.div 
               initial={{ opacity: 0, y: 20 }}

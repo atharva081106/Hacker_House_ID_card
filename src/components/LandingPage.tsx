@@ -24,7 +24,7 @@ const Marquee = ({ text, reverse = false }: { text: string, reverse?: boolean })
 
 const Content = ({ onEnter }: { onEnter: () => void }) => {
   return (
-    <div className="w-screen h-screen bg-[#0d5e38] flex flex-col justify-between p-4 md:p-8 text-[#FFE114] font-mono selection:bg-[#FF0E7F] selection:text-white relative overflow-hidden">
+    <div className="w-screen h-[100dvh] bg-[#0d5e38] flex flex-col justify-between p-4 md:p-8 text-[#FFE114] font-mono selection:bg-[#FF0E7F] selection:text-white relative overflow-hidden">
       {/* Noise Overlay */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
@@ -117,7 +117,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ isRevealed, onEnter })
     <>
       {/* Left Torn Half */}
       <motion.div
-        className="fixed inset-0 w-screen h-screen overflow-hidden z-50 pointer-events-auto shadow-2xl"
+        className="fixed inset-0 w-screen h-[100dvh] overflow-hidden z-50 pointer-events-auto shadow-2xl"
         initial={{ x: 0, y: 0, rotateZ: 0, opacity: 1 }}
         animate={isRevealed ? { 
           x: "-50vw", 
@@ -132,7 +132,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ isRevealed, onEnter })
           filter: isRevealed ? 'drop-shadow(10px 10px 20px rgba(0,0,0,0.5))' : 'none'
         }}
       >
-        <div className="absolute top-0 left-0 w-screen h-screen">
+        <div className="absolute top-0 left-0 w-screen h-[100dvh]">
           <Content onEnter={onEnter} />
         </div>
         {/* Torn edge highlight */}
@@ -141,7 +141,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ isRevealed, onEnter })
 
       {/* Right Torn Half */}
       <motion.div
-        className="fixed inset-0 w-screen h-screen overflow-hidden z-50 pointer-events-auto shadow-2xl"
+        className="fixed inset-0 w-screen h-[100dvh] overflow-hidden z-50 pointer-events-auto shadow-2xl"
         initial={{ x: 0, y: 0, rotateZ: 0, opacity: 1 }}
         animate={isRevealed ? { 
           x: "50vw", 
@@ -156,7 +156,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ isRevealed, onEnter })
           filter: isRevealed ? 'drop-shadow(-10px 10px 20px rgba(0,0,0,0.5))' : 'none'
         }}
       >
-        <div className="absolute top-0 left-0 w-screen h-screen">
+        <div className="absolute top-0 left-0 w-screen h-[100dvh]">
           <Content onEnter={onEnter} />
         </div>
         {/* Torn edge highlight */}
