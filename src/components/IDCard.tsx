@@ -54,7 +54,7 @@ export const IDCard = React.forwardRef<HTMLDivElement, IDCardProps>(
               <img 
                 src={photoUrl} 
                 alt="Builder Photo" 
-                className="w-full h-full object-cover grayscale contrast-[1.5] brightness-75 mix-blend-multiply opacity-90" 
+                className="w-full h-full object-cover object-center" 
                 crossOrigin="anonymous"
               />
             ) : (

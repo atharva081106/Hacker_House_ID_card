@@ -46,13 +46,7 @@ const Content = ({ onEnter }: { onEnter: () => void }) => {
           />
         </div>
         <div className="flex items-center gap-4 md:gap-8">
-          <motion.span 
-            animate={{ opacity: [1, 0.5, 1] }} 
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="tracking-widest uppercase text-sm hidden md:block"
-          >
-            CHECK HYPE
-          </motion.span>
+
           <button 
             onClick={onEnter}
             className="group relative px-6 md:px-8 py-3 bg-[#FFE114] text-[#0d5e38] font-bold text-lg md:text-xl uppercase tracking-widest border-2 border-dashed border-[#FF0E7F] hover:bg-white hover:text-black transition-colors shadow-[6px_6px_0_#FF0E7F] hover:shadow-[2px_2px_0_#FF0E7F] hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-2 active:translate-y-2 z-50"
