@@ -285,7 +285,7 @@ export default function Home() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="scale-[0.75] sm:scale-[0.85] md:scale-100 lg:scale-[1.1] xl:scale-[1.3] origin-center flex items-center justify-center w-full h-full">
+            <div className="scale-[0.75] sm:scale-[0.85] md:scale-95 lg:scale-100 origin-center flex items-center justify-center w-full h-full">
               <motion.div
                 initial={{ scale: 0.5, y: 100, rotateX: 20 }}
                 animate={{ scale: 1, y: 0, rotateX: 0 }}
