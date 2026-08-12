@@ -167,14 +167,14 @@ export default function Home() {
         {/* LEFT COL: Form */}
         <div className="flex flex-col gap-8 order-2 xl:order-1 max-w-lg mx-auto xl:mx-0 w-full z-10 xl:pl-16">
           <div>
-            <h1 className="text-5xl md:text-7xl font-serif text-white uppercase leading-none tracking-tight font-[family-name:var(--font-imbue)] drop-shadow-lg" style={{ textShadow: '4px 4px 0 #FF0E7F, -4px -4px 0 #00FFFF' }}>
-              Mint Your <span className="text-[#FFE114]">Identity</span>
+            <h1 className="text-5xl md:text-7xl font-serif text-white uppercase leading-none tracking-tight font-[family-name:var(--font-imbue)] drop-shadow-[0_0_15px_rgba(154,201,95,0.4)]">
+              Mint Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9AC95F] to-[#00FFAA]">Identity</span>
             </h1>
           </div>
 
           <div className="space-y-6 font-mono">
             <div className="flex flex-col gap-2 group">
-              <label className="text-gray-500 uppercase text-xs font-bold tracking-widest transition-colors group-focus-within:text-[#FF0E7F] group-focus-within:animate-pulse">
+              <label className="text-gray-400 uppercase text-xs font-semibold tracking-widest transition-colors group-focus-within:text-[#00FFAA]">
                 [ BUILDER_NAME ]
               </label>
               <input 
@@ -182,13 +182,13 @@ export default function Home() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="> Atharva Wani_"
-                className="bg-black/50 border border-gray-800 focus:border-[#FF0E7F] focus:shadow-[0_0_15px_rgba(255,14,127,0.3)] px-4 py-3 text-[#FF0E7F] outline-none transition-all placeholder:text-gray-700 font-bold"
+                className="bg-white/5 border border-white/10 focus:border-[#00FFAA] focus:bg-[#00FFAA]/5 px-4 py-3 text-white outline-none transition-all placeholder:text-gray-600 font-medium rounded-lg backdrop-blur-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)] focus:shadow-[0_0_20px_rgba(0,255,170,0.2)]"
                 maxLength={20}
               />
             </div>
             
             <div className="flex flex-col gap-2 group">
-              <label className="text-gray-500 uppercase text-xs font-bold tracking-widest transition-colors group-focus-within:text-[#FFE114] group-focus-within:animate-pulse">
+              <label className="text-gray-400 uppercase text-xs font-semibold tracking-widest transition-colors group-focus-within:text-[#00FFAA]">
                 [ TECH_STACK / ROLE ]
               </label>
               <input 
@@ -196,28 +196,28 @@ export default function Home() {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
                 placeholder="> Fullstack Web3 Dev_"
-                className="bg-black/50 border border-gray-800 focus:border-[#FFE114] focus:shadow-[0_0_15px_rgba(255,225,20,0.3)] px-4 py-3 text-[#FFE114] outline-none transition-all placeholder:text-gray-700 font-bold"
+                className="bg-white/5 border border-white/10 focus:border-[#00FFAA] focus:bg-[#00FFAA]/5 px-4 py-3 text-white outline-none transition-all placeholder:text-gray-600 font-medium rounded-lg backdrop-blur-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)] focus:shadow-[0_0_20px_rgba(0,255,170,0.2)]"
                 maxLength={25}
               />
             </div>
 
             <div className="flex flex-col gap-2 group">
-              <label className="text-gray-500 uppercase text-xs font-bold tracking-widest transition-colors group-hover:text-[#00FFFF] group-hover:animate-pulse">
+              <label className="text-gray-400 uppercase text-xs font-semibold tracking-widest transition-colors group-hover:text-[#00FFAA]">
                 [ PROFILE_PHOTO ]
               </label>
-              <label className="relative bg-black/50 border border-gray-800 hover:border-[#00FFFF] hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] px-4 py-8 flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden group/drop">
-                {/* Scanner animation on hover */}
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-[#00FFFF] shadow-[0_0_10px_#00FFFF] opacity-0 group-hover/drop:opacity-100 group-hover/drop:animate-scan z-0" />
+              <label className="relative bg-white/5 border border-white/10 hover:border-[#00FFAA]/50 hover:bg-[#00FFAA]/5 px-4 py-6 flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden group/drop rounded-xl backdrop-blur-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+                {/* Soft highlight animation on hover */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00FFAA]/50 to-transparent opacity-0 group-hover/drop:opacity-100 group-hover/drop:animate-scan z-0" />
                 
-                <Upload className="w-8 h-8 text-gray-700 group-hover/drop:text-[#00FFFF] mb-3 transition-colors relative z-10" />
-                <span className="text-gray-600 text-xs tracking-widest uppercase group-hover/drop:text-[#00FFFF] transition-colors relative z-10 font-bold text-center">
+                <Upload className="w-8 h-8 text-gray-500 group-hover/drop:text-[#00FFAA] mb-3 transition-colors relative z-10" />
+                <span className="text-gray-400 text-xs tracking-widest uppercase group-hover/drop:text-[#00FFAA] transition-colors relative z-10 font-semibold text-center">
                   {photo ? (
                     <>
                       &gt; IMAGE_LOADED <br/>
-                      <span className="text-[#FF0E7F] mt-2 block">CLICK TO REPLACE</span>
+                      <span className="text-[#00FFAA] mt-2 block opacity-80">CLICK TO REPLACE</span>
                       <button 
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowCropper(true); }}
-                        className="mt-4 px-4 py-1 border border-[#00FFFF] text-[#00FFFF] hover:bg-[#00FFFF] hover:text-black transition-colors"
+                        className="mt-4 px-5 py-1.5 border border-[#00FFAA]/50 bg-[#00FFAA]/10 text-[#00FFAA] hover:bg-[#00FFAA] hover:text-black rounded-full transition-all backdrop-blur-sm"
                       >
                         EDIT CROP
                       </button>
@@ -234,21 +234,21 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 mt-6">
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <button 
               onClick={handleDownload}
               disabled={isGenerating}
-              className="group relative flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-[#FFE114] text-black font-bold uppercase tracking-widest hover:bg-white transition-all disabled:opacity-50 overflow-hidden shadow-[4px_4px_0_#FF0E7F] hover:shadow-[0px_0px_0_#FF0E7F] hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-2 active:translate-y-2 text-base"
+              className="group relative flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#9AC95F] to-[#00FFAA] text-black font-bold uppercase tracking-widest hover:opacity-90 transition-all disabled:opacity-50 overflow-hidden rounded-full shadow-[0_0_20px_rgba(0,255,170,0.2)] hover:shadow-[0_0_30px_rgba(0,255,170,0.4)] hover:-translate-y-1 active:translate-y-0 text-sm"
             >
               <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out" />
               {isGenerating ? (
                 <>
-                  <Loader2 className="w-6 h-6 animate-spin" />
+                  <Loader2 className="w-5 h-5 animate-spin" />
                   <span>MINTING...</span>
                 </>
               ) : (
                 <>
-                  <Download className="w-6 h-6" />
+                  <Download className="w-5 h-5" />
                   <span>DOWNLOAD</span>
                 </>
               )}
@@ -256,9 +256,9 @@ export default function Home() {
             <button 
               onClick={handleShare}
               disabled={isGenerating}
-              className="group relative flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-black border-2 border-dashed border-[#FF0E7F] text-[#FF0E7F] font-bold uppercase tracking-widest hover:bg-[#FF0E7F]/10 hover:shadow-[0_0_15px_rgba(255,14,127,0.4)] transition-all disabled:opacity-50 text-base"
+              className="group relative flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 border border-[#00FFAA]/50 text-[#00FFAA] font-bold uppercase tracking-widest hover:bg-[#00FFAA]/10 hover:border-[#00FFAA] hover:shadow-[0_0_20px_rgba(0,255,170,0.2)] transition-all disabled:opacity-50 rounded-full hover:-translate-y-1 active:translate-y-0 text-sm backdrop-blur-sm"
             >
-              <Share2 className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
+              <Share2 className="w-5 h-5" />
               <span>SHARE TO X</span>
             </button>
           </div>
@@ -342,7 +342,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: 0.2 }}
-              className="absolute bottom-12 text-[#FF0E7F] font-mono tracking-widest text-sm uppercase animate-pulse pointer-events-none"
+              className="absolute bottom-12 text-[#00FFAA] font-mono tracking-widest text-sm uppercase animate-pulse pointer-events-none"
             >
               [ CLICK_ANYWHERE_TO_EXIT ]
             </motion.div>
