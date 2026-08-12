@@ -109,10 +109,35 @@ export default function Home() {
   };
 
   const handleShare = async () => {
-    // We must download the image first because X's Web Intent does not allow attaching local images via URL
+    const text = "I just minted my Builder ID for Hacker House Goa 2026! 🌴💻\n\nMint yours here: https://hacker-house-id-card-neon.vercel.app/\n\n#FrameInGoa";
+    
+    try {
+      const dataUrl = await generateImage();
+      if (!dataUrl) return;
+
+      // Try native Web Share API first (works on mobile and Safari/Edge)
+      const res = await fetch(dataUrl);
+      const blob = await res.blob();
+      const file = new File([blob], `hh-goa-id.png`, { type: "image/png" });
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'Hacker House Goa 2026 ID',
+          text: text,
+        });
+        return; // Success!
+      }
+    } catch (err) {
+      console.log("Web Share API failed, falling back to Web Intent.", err);
+    }
+
+    // Fallback: download the image first since X Web Intent cannot attach local files
     await handleDownload();
     
-    const tweetText = encodeURIComponent("I just minted my Builder ID for Hacker House Goa 2026! 🌴💻 I've attached my badge.\n\nMint yours here: https://hacker-house-id-card-neon.vercel.app/\n\n#FrameInGoa");
+    alert("Your ID card has been downloaded! 🖼️\n\nPlease manually attach the downloaded image to your X post.");
+    
+    const tweetText = encodeURIComponent(text);
     window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, "_blank");
   };
 
