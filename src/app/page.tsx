@@ -116,12 +116,12 @@ export default function Home() {
       if (navigator.share && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: "My HH Goa 2026 ID",
-          text: "I just minted my Builder ID for Hacker House Goa 2026! 🌴💻\n\nMint yours here: https://hh-goa-id-generator.vercel.app\n\n#FrameInGoa",
+          text: "I just minted my Builder ID for Hacker House Goa 2026! 🌴💻\n\nMint yours here: https://hacker-house-id-card-neon.vercel.app/\n\n#FrameInGoa",
           files: [file],
         });
       } else {
         handleDownload();
-        const tweetText = encodeURIComponent("I just minted my Builder ID for Hacker House Goa 2026! 🌴💻 I've attached my badge.\n\nMint yours here: https://hh-goa-id-generator.vercel.app\n\n#FrameInGoa");
+        const tweetText = encodeURIComponent("I just minted my Builder ID for Hacker House Goa 2026! 🌴💻 I've attached my badge.\n\nMint yours here: https://hacker-house-id-card-neon.vercel.app/\n\n#FrameInGoa");
         window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, "_blank");
       }
     } catch (error) {
